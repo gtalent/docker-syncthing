@@ -1,6 +1,4 @@
-# ubunut 15 saves about 50MB over ubuntu stable
-FROM ubuntu:15.10
-MAINTAINER Joey Baker <joey@byjoeybaker.com>
+FROM debian:8
 
 ENV SYNCTHING_VERSION 0.14.19
 
@@ -12,8 +10,8 @@ RUN apt-get update \
 
 # grab gosu for easy step-down from root
 RUN gpg --keyserver pgp.mit.edu --recv-keys B42F6819007F00F88E364FD4036A9C25BF357DD4 \
-  && curl -o /usr/local/bin/gosu -SL "https://github.com/tianon/gosu/releases/download/1.2/gosu-$(dpkg --print-architecture)" \
-  && curl -o /usr/local/bin/gosu.asc -L "https://github.com/tianon/gosu/releases/download/1.2/gosu-$(dpkg --print-architecture).asc" \
+  && curl -o /usr/local/bin/gosu -SL "https://github.com/tianon/gosu/releases/download/1.4/gosu-$(dpkg --print-architecture)" \
+  && curl -o /usr/local/bin/gosu.asc -L "https://github.com/tianon/gosu/releases/download/1.4/gosu-$(dpkg --print-architecture).asc" \
   && gpg --verify /usr/local/bin/gosu.asc \
   && rm /usr/local/bin/gosu.asc \
   && chmod +x /usr/local/bin/gosu
