@@ -1,10 +1,10 @@
-# docker-syncthing [![Docker Pulls](https://img.shields.io/docker/pulls/joeybaker/syncthing.svg)](https://registry.hub.docker.com/u/joeybaker/syncthing/)
+# docker-syncthing
 
 Run [syncthing](https://syncthing.net) from a docker container
 
 ## Install
 ```sh
-docker pull joeybaker/syncthing
+docker build . -t syncthing
 ```
 
 ## Usage
@@ -15,7 +15,7 @@ docker run -d --restart=always \
   -v /srv/syncthing:/srv/config \
   -p 22000:22000  -p 21025:21025/udp -p 8080:8080 \
   --name syncthing \
-  joeybaker/syncthing
+  syncthing
 ```
 
 If you want to add a new folder, make sure you set the path to something in `/srv/data`.
